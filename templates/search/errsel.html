@@ -1,0 +1,148 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ERROR TAGS</title>
+    <script src="{% static "js/jquery.js" %}"></script>
+    <link href="{% static "css/bootstrap.flatly.css" %}" rel="stylesheet">
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+          <link href="{% static "css/style.css" %}" rel="stylesheet">
+          <link href="{% static "css/styles.css" %}" rel="stylesheet">
+	<script language="JavaScript" src="{% static "js/gramsel.js" %}"></script>
+	<script language="JavaScript" src="{% static "js/urlprocessor.js" %}"></script>
+
+</head>
+<body onLoad="InitWindow()">
+<div class="container">
+<div class="row">
+
+  <form name="gramForm" id="gramForm" action="">
+      <div class="row">
+        <div class="col-sm-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 title="Invert" class="panel-title activeA  gr_inv grammar" onClick="inverse('lexis')">Лексические ошибки</h3>
+        </div>
+        <div class="panel-body">
+                <div class="gr_group">
+                <div>
+                    <input type="checkbox" name="lexis" value="lex" id="lexislex">&nbsp;<label for="lexislex">lex</label> <a href="#" data-toggle="tooltip" title="Лексические ошибки" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="lexis" value="word" id="lexisword">&nbsp;<label for="lexisword">word</label> <a href="#" data-toggle="tooltip" title="Ошибка в конкретном слове" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="lexis" value="phrase" id="lexisphrase">&nbsp;<label for="lexisphrase">phrase</label> <a href="#" data-toggle="tooltip" title="Ошибка в конкретном фразеологизме" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="lexis" value="meton" id="lexismeton">&nbsp;<label for="lexismeton">meton</label> <a href="#" data-toggle="tooltip" title="Метонимия" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="lexis" value="intens" id="lexisintens">&nbsp;<label for="lexisintens">intens</label> <a href="#" data-toggle="tooltip" title="Ошибка, связанная с интенсификатором" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="lexis" value="deriv" id="lexisderiv">&nbsp;<label for="lexisderiv">deriv</label> <a href="#" data-toggle="tooltip" title="Словообразование" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="lexis" value="paron" id="lexisparon">&nbsp;<label for="lexisparon">paron</label> <a href="#" data-toggle="tooltip" title="Паронимы" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="lexis" value="asp" id="lexisasp">&nbsp;<label for="lexisasp">asp</label> <a href="#" data-toggle="tooltip" title="Вид глагола" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="lexis" value="nmz" id="lexisnmz">&nbsp;<label for="lexisnmz">nmz</label> <a href="#" data-toggle="tooltip" title="Ошибки в отглагольных существительных" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="lexis" value="aux" id="lexisaux">&nbsp;<label for="lexisaux">aux</label> <a href="#" data-toggle="tooltip" title="Легкие глаголы" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+                </div>
+            </div>
+        </div>
+      </div>
+            <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 title="Invert" class="panel-title gr_inv activeA grammar" onClick="inverse('style')">Стиль</h3>
+        </div>
+        <div class="panel-body">
+                <div class="gr_group">
+                <div>
+                    <input type="checkbox" name="style" value="styl" id="stylestyl">&nbsp;<label for="stylestyl">styl</label> <a href="#" data-toggle="tooltip" title="Стиль" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="style" value="official" id="styleofficial">&nbsp;<label for="styleofficial">official</label> <a href="#" data-toggle="tooltip" title="Канцелярский стиль" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="style" value="colloq" id="stylecolloq">&nbsp;<label for="stylecolloq">colloq</label> <a href="#" data-toggle="tooltip" title="Разговорный стиль" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+                </div>
+            </div>
+        </div>
+      </div>
+
+          </div>
+          <div class="col-sm-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 title="Invert" class="gr_inv panel-title activeA grammar" onClick="inverse('grammar')">Грамматические ошибки</h3>
+        </div>
+        <div class="panel-body">
+                <div class="gr_group">
+                <div>
+                    <input type="checkbox" name="grammar" value="agr" id="grammaragr">&nbsp;<label for="grammaragr">agr</label> <a href="#" data-toggle="tooltip" title="Нарушение в согласовании" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="gov" id="grammargov">&nbsp;<label for="grammargov">gov</label> <a href="#" data-toggle="tooltip" title="Нарушение в управлении" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="infl" id="grammarinfl">&nbsp;<label for="grammarinfl">infl</label> <a href="#" data-toggle="tooltip" title="Ошибки, связанные с именным и глагольным словоизменением" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="compar" id="grammarcompar">&nbsp;<label for="grammarcompar">compar</label> <a href="#" data-toggle="tooltip" title="Нарушения в сравнительных конструкциях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="complex" id="grammarcomplex">&nbsp;<label for="grammarcomplex">complex</label> <a href="#" data-toggle="tooltip" title="Ошибки в сложных предложениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="grammar" value="rel_clause" id="grammarrel_clause">&nbsp;<label for="grammarrel_clause">rel_clause</label> <a href="#" data-toggle="tooltip" title="Ошибки в относительных предложениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="grammar" value="sent_arg" id="grammarsent_arg">&nbsp;<label for="grammarsent_arg">sent_arg</label> <a href="#" data-toggle="tooltip" title="Ошибки в сентенциальных актантах" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="conn" id="grammarconn">&nbsp;<label for="grammarconn">conn</label> <a href="#" data-toggle="tooltip" title="Ошибки в союзах" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="coord" id="grammarcoord">&nbsp;<label for="grammarcoord">coord</label> <a href="#" data-toggle="tooltip" title="Ошибка в сочинении" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="grammar" value="discoord" id="grammardiscoord">&nbsp;<label for="grammardiscoord">discoord</label> <a href="#" data-toggle="tooltip" title="Сочинение в разных составляющих" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="ref" id="grammarref">&nbsp;<label for="grammarref">ref</label> <a href="#" data-toggle="tooltip" title="Нарушение кореферентности" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="grammar" value="converb" id="grammarconverb">&nbsp;<label for="grammarconverb">converb</label> <a href="#" data-toggle="tooltip" title="Ошибка в деепричастном обороте" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="grammar" value="pron" id="grammarpron">&nbsp;<label for="grammarpron">pron</label> <a href="#" data-toggle="tooltip" title="Ошибка в местоимениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="voice" id="grammarvoice">&nbsp;<label for="grammarvoice">voice</label> <a href="#" data-toggle="tooltip" title="Ошибки в залоге и в актантных деривациях  (декаузатив, рефлексив, реципрок, имперсонал, лабильные глаголы)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="lack" id="grammarlack">&nbsp;<label for="grammarlack">lack</label> <a href="#" data-toggle="tooltip" title="Пропуск, в том числе эллипсис" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+<input type="checkbox" name="grammar" value="constr" id="grammarconstr">&nbsp;<label for="grammarconstr">constr</label> <a href="#" data-toggle="tooltip" title="Ошибка в конструкции" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+                </div>
+            </div>
+        </div>
+      </div>
+          </div>
+      <div class="col-sm-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 title="Invert" class="panel-title gr_inv activeA grammar"  onClick="inverse('discourse')">Дискурс</h3>
+        </div>
+        <div class="panel-body">
+                <div class="gr_group">
+                <div>
+                    <input type="checkbox" name="discourse" value="discourse" id="discoursediscourse">&nbsp;<label for="discoursediscourse">discourse</label> <a href="#" data-toggle="tooltip" title="Ошибки дискурсивного уровня (метатекстовые комментарии, смешение прямой и косвенной речи, бессвязные предложения и т.п.)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="discourse" value="parc" id="discourseparc">&nbsp;<label for="discourseparc">parc</label> <a href="#" data-toggle="tooltip" title="Парцелляция" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="discourse" value="logic" id="discourselogic">&nbsp;<label for="discourselogic">logic</label> <a href="#" data-toggle="tooltip" title="Логические нарушения" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="discourse" value="link" id="discourselink">&nbsp;<label for="discourselink">link</label> <a href="#" data-toggle="tooltip" title="Неверное употребление вводных слов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="discourse" value="WO" id="discourseWO">&nbsp;<label for="discourseWO">WO</label> <a href="#" data-toggle="tooltip" title="Ошибка в порядке слов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="discourse" value="tauto" id="discoursetauto">&nbsp;<label for="discoursetauto">tauto</label> <a href="#" data-toggle="tooltip" title="Тавтология" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="discourse" value="top" id="discoursetop">&nbsp;<label for="discoursetop">top</label> <a href="#" data-toggle="tooltip" title="Неверная топикализация" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+                </div>
+            </div>
+        </div>
+      </div>
+            <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3  title="Invert" class="panel-title activeA grammar gr_inv"  onClick="inverse('cause')">Причина ошибки</h3>
+        </div>
+        <div class="panel-body">
+                <div class="gr_group">
+                <div>
+                    <input type="checkbox" name="cause" value="cause" id="causecause">&nbsp;<label for="causecause">cause</label> <a href="#" data-toggle="tooltip" title="Причина ошибки" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="cause" value="typo" id="causetypo">&nbsp;<label for="causetypo">typo</label> <a href="#" data-toggle="tooltip" title="Опечатка" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="cause" value="contam" id="causecontam">&nbsp;<label for="causecontam">contam</label> <a href="#" data-toggle="tooltip" title="Контаминация конструкций" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><br/>
+                </div>
+            </div>
+        </div>
+      </div>
+          </div>
+
+      </div>
+      <div class="row">
+          <div class="col-sm-12">
+      <div class="panel-footer" align="center">
+  <input type="button" class="btn btn-default" onClick="collect();return false;" value="OK">
+		<input type="button" class="btn btn-default" onClick="document.all.gramForm.reset();return false;" value="CLEAR">
+		<input type="button" class="btn btn-default" onClick="window.close();return false;" value="CANCEL">
+
+          </div>
+              </div>
+          </div>
+  </form>
+
+</div>
+    </div>
+</body>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(
+            {"trigger": 'click', "placement":'auto'}
+    );
+});
+</script>
+</html>

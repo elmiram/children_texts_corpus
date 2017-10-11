@@ -1,0 +1,17 @@
+# User-specific stuff:
+.idea/
+
+# Sensitive stuff
+.secure.settings.json
+mystem*
+
+# Django related
+*.mo
+public/
+
+# Python
+*.pyc
+
+# Databases
+*.sql
+*.sqlite

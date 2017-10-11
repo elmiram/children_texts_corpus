@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load annotator_tags %}
+
+{% block title %}
+    {% trans 'Annotation' %}
+
+
+{% endblock %}
+{% block meta_content %}
+    {% trans 'Annotation' %}
+{% endblock %}
+
+{% block other %}
+    <script>
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+    $(document).ready(function(){
+$( "#showbutton" ).click(function() {
+  $( "#annotatorlist" ).toggle();
+});
+            $("#allpersons").click(function () {
+               var checkboxes = $(".Person");
+                checkboxes.prop('checked', function(){
+                    if ($(this).prop('checked')){return false}
+                    else {return true}
+                });
+    });
+                $("#practicepersons").click(function () {
+    $(".Practice").prop('checked', function(){
+                    if ($(this).prop('checked')){return false}
+                    else {return true}
+                });
+});
+
+        var cookie_annot = getCookie("Corpus_annotated");
+        var cookie_notannot = getCookie("Corpus_not_annotated");
+        var cookie_checked = getCookie("Corpus_checked");
+
+        if (cookie_annot != "") {$("#annotated").scrollTop(cookie_annot);}
+        $("#annotated").scroll(function() {
+           var scrollPos = $("#annotated").scrollTop();
+           setCookie("Corpus_annotated", scrollPos, 1)
+        });
+
+        if (cookie_notannot != "") {$("#not_annotated").scrollTop(cookie_notannot);}
+        $("#not_annotated").scroll(function() {
+           var scrollPos2 = $("#not_annotated").scrollTop();
+           setCookie("Corpus_not_annotated", scrollPos2, 1)
+        });
+
+        if (cookie_checked != "") {$("#checked").scrollTop(cookie_checked );}
+        $("#checked").scroll(function() {
+           var scrollPos3 = $("#checked").scrollTop();
+           setCookie("Corpus_checked", scrollPos3, 1)
+        });
+
+    });
+</script>
+{% endblock %}
+{% block upper-row %}
+{% endblock %}
+
+{% block content %}
+    <h1>{% trans 'List of documents for annotation' %}</h1>
+
+<div class="row" style="margin-top: 10px">
+<div class="col-md-4">
+    <div class="panel panel-primary">
+    <div class="panel-heading">{% trans 'Not annotated' %}</div>
+      <div class="panel-body" style="min-height: 450px; max-height: 450px; overflow-y: scroll;" id="not_annotated">
+
+        <ol>
+            {% for doc in docs %}
+                {% if not doc.annotated %}
+                    <li>
+                        <span class="badge">{{ doc.id }}</span> <a href="{% url 'annotation.editor' doc.id%}"> {{ doc }} </a>
+                    </li>
+                {% endif %}
+        {% endfor %}
+        </ol>
+
+      </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="panel panel-primary">
+    <div class="panel-heading">{% trans 'Annotated, not checked' %}</div>
+      <div class="panel-body" style="min-height: 450px; max-height: 450px; overflow-y: scroll;"  id="annotated">
+
+          <ol>
+                {% for doc in docs %}
+                    {% if doc.annotated and not doc.checked %}
+                        <li>
+                            <span class="badge">{{ doc.id }}</span> <a href="{% url 'annotation.editor' doc.id%}">{{ doc }} </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+
+      </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="panel panel-primary">
+    <div class="panel-heading">{% trans 'Annotated, checked' %}</div>
+      <div class="panel-body" style="min-height: 450px; max-height: 450px; overflow-y: scroll;"  id="checked">
+
+          <ol>
+                {% for doc in docs %}
+                    {% if  doc.checked %}
+                        <li>
+                            <span class="badge">{{ doc.id }}</span> <a href="{% url 'annotation.editor' doc.id%}">{{ doc }} </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+      </div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}

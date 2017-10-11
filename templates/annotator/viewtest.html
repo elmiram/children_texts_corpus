@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load annotator_tags %}
+{% block title %}{% trans 'Annotation' %}{% endblock %}
+{% block meta_content %}{% trans 'Annotation' %}{% endblock %}
+
+{% block scripts %}
+{% for i in j %}
+     <script>
+    {{ i|safe }}
+    </script>
+{% endfor %}
+{% endblock %}
+    {% block upper-row %}
+            {% endblock %}
+
+    {% block other %}
+
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<style>
+ul {font-size: 8px;
+    line-height: 12px;}
+</style>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <style>
+        .ui-autocomplete { position: absolute; cursor: default;z-index:30000 !important;}
+        </style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.token').tooltip({
+    placement : 'top',
+      delay: { "show": 500, "hide": 0 },
+    trigger: 'hover',
+      html: true
+  });
+});
+</script>
+        <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(
+            {"trigger": 'click', "placement":'auto'}
+    );
+});
+</script>
+    {% endblock %}
+
+{% block content_header %}{% trans 'Annotate texts' %}{% endblock content_header %}
+{% block content %}
+    <div class="col-md-10">
+    {% for doc, sents in data %}
+    <div class="row">
+      <div class="col-md-6">
+          <h2>
+        <span class="lead">{% trans 'Annotation of text:' %}</span> <strong>{{doc}}</strong>
+    </h2>
+      </div>
+      <div class="col-md-6">
+      <div class="row">
+          <h2 align="right">
+          <div class="col-md-6">
+              {% if doc.annotated %}
+                  {% if request.user|has_group:"STAFF"%}
+              {% if not doc.checked %}
+                  <form action="mark" method="POST">
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                <button type="submit" class="btn btn-info btn-sm" value="checked" name="mark">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {% trans 'Mark as checked' %}
+                </button></form>
+              {% endif %}
+                      {% if doc.checked %}
+                  <form action="mark" method="POST">
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                <button type="submit" class="btn btn-warning btn-sm" value="unchecked" name="mark">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {% trans 'Mark as not checked' %}
+                </button></form>
+              {% endif %}
+                  {% endif %}
+          {% endif %}
+          </div>
+          <div class="col-md-6">
+              {% if not doc.annotated %}
+              <form action="mark" method="POST">
+              <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                 <button type="submit" class="btn btn-info btn-sm" value="annotated" name="mark">
+                  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> {% trans 'Mark as annotated' %}
+                </button>
+              </form></h2>
+      {% endif %}
+      {% if doc.annotated %}
+              <form action="mark" method="POST">
+              <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                 <button type="submit" class="btn btn-danger btn-sm" value="unannotated" name="mark">
+                  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> {% trans 'Mark as not annotated' %}
+                </button>
+              </form></h2>
+      {% endif %}
+      </div>
+
+      </div>
+      </div>
+
+	<div class="row">
+		{% for sent in sents %}
+            <span id="{{ sent.id }}" contenteditable="false"> <!-- onmouseup="snapSelectionToWord() -->
+                {{sent.tagged|safe|linebreaksbr}}
+            </span>
+		{% endfor %}
+
+
+        {% if sents.paginator.num_pages > 1 %}
+
+    <nav>
+  <ul class="pagination pagination-sm">
+       {% if sents.has_previous %}
+           <li>
+      <a href="{% url 'annotation.editor2' doc_id result.previous_page_number%}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+            {% endif %}
+{% for i in sents.paginator.page_range %}
+    <li
+    {% if sents.number == i %}
+            class="active"
+            {% endif %}
+    ><a href="{% url 'annotation.editor2' doc_id i%}">{{ i }}</a></li>
+        {% endfor %}
+  {% if sents.has_next %}
+      <li>
+      <a href="{% url 'annotation.editor2' doc_id sents.next_page_number%}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+            {% endif %}
+
+  </ul>
+</nav>
+        {% endif %}
+        </div>
+
+    {% endfor %}
+    </div>
+
+    <div class="col-md-2">
+    <div class="row" style="padding-top:20px; line-height: 1; font-size:80%">
+<h4 class="well well-sm">{% trans 'Error tags' %}</h4>
+  <ul class="nav nav-stacked well well-sm">
+    <li>{% trans 'Lexis' %}
+        <ul>
+            <li>lex <a href="#" data-toggle="tooltip" title="Лексические ошибки" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+            <ul>
+                <li>word <a href="#" data-toggle="tooltip" title="Ошибка в конкретном слове" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+                <li>phrase <a href="#" data-toggle="tooltip" title="Ошибка в конкретном фразеологизме" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+                <li>meton <a href="#" data-toggle="tooltip" title="Метонимия" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+                <li>intens <a href="#" data-toggle="tooltip" title="Ошибка, связанная с интенсификатором" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+            </ul></li>
+            <li>deriv <a href="#" data-toggle="tooltip" title="Словообразование" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+            <ul>
+                <li>paron <a href="#" data-toggle="tooltip" title="Паронимы" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+                <li>asp <a href="#" data-toggle="tooltip" title="Вид глагола" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+            </ul></li>
+            <li>nmz <a href="#" data-toggle="tooltip" title="Ошибки в отглагольных существительных" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+            <li>aux <a href="#" data-toggle="tooltip" title="Легкие глаголы" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        </ul>
+    </li>
+    <li>{% trans 'Grammar' %}
+    <ul>
+        <li>agr <a href="#" data-toggle="tooltip" title="Нарушение в согласовании" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>gov <a href="#" data-toggle="tooltip" title="Нарушение в управлении" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>infl <a href="#" data-toggle="tooltip" title="Ошибки, связанные с именным и глагольным словоизменением" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>compar <a href="#" data-toggle="tooltip" title="Нарушения в сравнительных конструкциях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>complex <a href="#" data-toggle="tooltip" title="Ошибки в сложных предложениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+        <ul>
+            <li>rel_clause <a href="#" data-toggle="tooltip" title="Ошибки в относительных предложениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+            <li>sent_arg <a href="#" data-toggle="tooltip" title="Ошибки в сентенциальных актантах" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        </ul></li>
+        <li>conn <a href="#" data-toggle="tooltip" title="Ошибки в союзах" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>coord <a href="#" data-toggle="tooltip" title="Ошибка в сочинении" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+        <ul><li>discoord <a href="#" data-toggle="tooltip" title="Сочинение в разных составляющих" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li></ul></li>
+        <li>ref <a href="#" data-toggle="tooltip" title="Нарушение кореферентности" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+        <ul>
+            <li>converb <a href="#" data-toggle="tooltip" title="Ошибка в деепричастном обороте" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+            <li>pron <a href="#" data-toggle="tooltip" title="Ошибка в местоимениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        </ul></li>
+        <li>voice <a href="#" data-toggle="tooltip" title="Ошибки в залоге и в актантных деривациях  (декаузатив, рефлексив, реципрок, имперсонал, лабильные глаголы)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>lack <a href="#" data-toggle="tooltip" title="Ошибки в залоге и в актантных деривациях  (декаузатив, рефлексив, реципрок, имперсонал, лабильные глаголы)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>constr <a href="#" data-toggle="tooltip" title="Ошибка в конструкции" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+    </ul></li>
+    <li>{% trans 'Discourse' %}
+    <ul><li>discourse <a href="#" data-toggle="tooltip" title="Ошибки дискурсивного уровня (метатекстовые комментарии, смешение прямой и косвенной речи, бессвязные предложения и т.п.)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+    <ul>
+        <li>parc <a href="#" data-toggle="tooltip" title="Парцелляция" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>logic <a href="#" data-toggle="tooltip" title="Логические нарушения" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>link <a href="#" data-toggle="tooltip" title="Неверное употребление вводных слов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>WO <a href="#" data-toggle="tooltip" title="Ошибка в порядке слов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>tauto <a href="#" data-toggle="tooltip" title="Тавтология" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>top <a href="#" data-toggle="tooltip" title="Неверная топикализация" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li></ul></li></ul></li>
+    <li>{% trans 'Style' %}
+    <ul>
+        <li>styl <a href="#" data-toggle="tooltip" title="Стиль" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>official <a href="#" data-toggle="tooltip" title="Канцелярский стиль" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>colloq <a href="#" data-toggle="tooltip" title="Разговорный стиль" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li></ul></li>
+    <li>{% trans 'Cause' %}
+    <ul><li>cause <a href="#" data-toggle="tooltip" title="Причина ошибки" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><ul>
+        <li>typo <a href="#" data-toggle="tooltip" title="Опечатка" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>contam <a href="#" data-toggle="tooltip" title="Контаминация конструкций" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li></ul></li></ul></li>
+  </ul>
+    </div>
+    </div>
+
+{% endblock %}
+

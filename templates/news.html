@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}News{% endblock %}
+{% block meta_content %}News{% endblock %}
+
+{% block content_header %}News{% endblock content_header %}
+{% block top-name %}
+         {% trans "News" %}
+          {% endblock %}
+{% block content %}
+{% for article in articles %}
+
+     <strong>{{ article.date }}</strong>
+    {% if LANGUAGE_CODE == 'ru' %}
+    <p>{{ article.text_rus }} </p>
+    {% endif %}
+    {% if LANGUAGE_CODE == 'en' %}
+    <p>{{ article.text_eng }} </p>
+    {% endif %}
+    {% endfor %}
+
+{% endblock content %}

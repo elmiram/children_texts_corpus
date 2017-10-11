@@ -1,0 +1,1196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-18 14:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: annotator/models.py:27 heritage_corpus/settings.py:88
+#: templates/search.html:288
+msgid "English"
+msgstr "английский"
+
+#: annotator/models.py:27 templates/search.html:290
+msgid "Norwegian"
+msgstr "норвежский"
+
+#: annotator/models.py:27 templates/search.html:294
+msgid "Korean"
+msgstr "корейский"
+
+#: annotator/models.py:28 templates/search.html:289
+msgid "Italian"
+msgstr "итальянский"
+
+#: annotator/models.py:28 templates/search.html:295
+msgid "French"
+msgstr "французский"
+
+#: annotator/models.py:28 templates/search.html:296
+msgid "German"
+msgstr "немецкий"
+
+#: annotator/models.py:29 templates/search.html:297
+msgid "Serbian"
+msgstr "сербский"
+
+#: annotator/models.py:30 templates/search.html:257
+msgid "written"
+msgstr "письменный"
+
+#: annotator/models.py:30 templates/search.html:256
+msgid "oral"
+msgstr "устный"
+
+#: annotator/models.py:31
+msgid "female"
+msgstr "женский"
+
+#: annotator/models.py:31
+msgid "male"
+msgstr "мужской"
+
+#: annotator/models.py:32 templates/search.html:271
+msgid "heritage"
+msgstr "эритажный"
+
+#: annotator/models.py:32 templates/search.html:270
+msgid "foreign"
+msgstr "иностранный"
+
+#: annotator/models.py:68
+msgid "owner"
+msgstr "создатель"
+
+#: annotator/models.py:70
+msgid "название"
+msgstr ""
+
+#: annotator/models.py:71
+msgid "Paste the text here."
+msgstr "Скопируйте в это поле текст"
+
+#: annotator/models.py:71
+msgid "text"
+msgstr "текст"
+
+#: annotator/models.py:73
+msgid "Enter author's first and/or  second name."
+msgstr "Введите имя автора"
+
+#: annotator/models.py:73
+msgid "author"
+msgstr "автор"
+
+#: annotator/models.py:74
+msgid "mode"
+msgstr "тип текста"
+
+#: annotator/models.py:75
+msgid "Enter the name of the folder and file from which the text is taken."
+msgstr "Введите название папки или файла, из которого скопирован текст"
+
+#: annotator/models.py:75
+msgid "Source"
+msgstr "источник текста"
+
+#: annotator/models.py:76
+msgid "subcorpus"
+msgstr "подкорпус"
+
+#: annotator/models.py:79
+msgid "When the text was written, e.g. 2014."
+msgstr "Когда текст был написан"
+
+#: annotator/models.py:79 news/models.py:9
+msgid "date"
+msgstr "дата"
+
+#: annotator/models.py:81
+msgid "genre"
+msgstr "жанр"
+
+#: annotator/models.py:82
+msgid "gender"
+msgstr "пол"
+
+#: annotator/models.py:83
+msgid "Enter the name of the program in which the text was assigned"
+msgstr "Введите название курса, на котором был задан текст"
+
+#: annotator/models.py:83
+msgid "program"
+msgstr "курс"
+
+#: annotator/models.py:84
+msgid "language background"
+msgstr "русский язык"
+
+#: annotator/models.py:85
+msgid "type of text"
+msgstr "тип текста"
+
+#: annotator/models.py:86
+msgid "level"
+msgstr "уровень"
+
+#: annotator/models.py:87 annotator/models.py:242
+msgid "annotation"
+msgstr "аннотация"
+
+#: annotator/models.py:88
+msgid "student code"
+msgstr "код студента"
+
+#: annotator/models.py:89
+msgid "time limit"
+msgstr "временные ограничения"
+
+#: annotator/models.py:90
+msgid "dominant language"
+msgstr "доминантный язык"
+
+#: annotator/models.py:91
+msgid "full metadata"
+msgstr "метаданные заполнены"
+
+#: annotator/models.py:94 templates/result.html:54 templates/result.html.py:57
+msgid "words"
+msgstr "слова"
+
+#: annotator/models.py:95 annotator/models.py:213 templates/result.html:54
+#: templates/result.html.py:57
+msgid "sentences"
+msgstr "предложения"
+
+#: annotator/models.py:96
+msgid "date displayed"
+msgstr "отображаемая дата"
+
+#: annotator/models.py:99
+msgid "text is annotated"
+msgstr "текст размечен"
+
+#: annotator/models.py:100
+msgid "text is checked"
+msgstr "текст проверен"
+
+#: annotator/models.py:103
+msgid "document"
+msgstr "документ"
+
+#: annotator/models.py:104 templates/result.html:54
+#: templates/result.html.py:57 templates/result.html:60
+msgid "documents"
+msgstr "документы"
+
+#: annotator/models.py:212
+msgid "sentence"
+msgstr "предложение"
+
+#: annotator/models.py:243
+msgid "annotations"
+msgstr "аннотации"
+
+#: annotator/models.py:483
+msgid "token"
+msgstr "токен"
+
+#: annotator/models.py:484
+msgid "tokens"
+msgstr "токены"
+
+#: annotator/models.py:507
+msgid "analysis"
+msgstr "разбор"
+
+#: annotator/models.py:508
+msgid "analyses"
+msgstr "разборы"
+
+#: heritage_corpus/settings.py:87
+msgid "Russian"
+msgstr "русский"
+
+#: news/models.py:9
+msgid "Please use the calendar view to choose date."
+msgstr "Используйте календарь, чтобы выбрать дату"
+
+#: news/models.py:12 news/models.py:24
+msgid "Please enter the news text in Russian."
+msgstr "Введите текст новости на русском языке"
+
+#: news/models.py:12 news/models.py:24
+msgid "text in Russian"
+msgstr "текст на русском языке"
+
+#: news/models.py:13 news/models.py:25
+msgid "Please enter the news text in English."
+msgstr "Введите текст новости на английском языке"
+
+#: news/models.py:13 news/models.py:25
+msgid "text in English"
+msgstr "текст на английском"
+
+#: news/models.py:19
+msgid "article"
+msgstr "статья"
+
+#: news/models.py:20
+msgid "articles"
+msgstr "статьи"
+
+#: news/models.py:26
+msgid "Enter the name of the section in Russian"
+msgstr "Введите текст на русском языке"
+
+#: news/models.py:26
+msgid "name in Russian"
+msgstr "название на русском языке"
+
+#: news/models.py:27
+msgid "Enter the name of the section in English"
+msgstr "Введите текст на английском языке"
+
+#: news/models.py:27
+msgid "name in English"
+msgstr "название на английском языке"
+
+#: news/models.py:28
+msgid "Please enter the number of the entry on the page"
+msgstr "Введите номер секции на странице"
+
+#: news/models.py:28
+msgid "entry number"
+msgstr "номер секции"
+
+#: news/models.py:31
+msgid "section"
+msgstr "секция"
+
+#: news/models.py:32
+msgid "sections"
+msgstr "секции"
+
+#: templates/admin/base.html:30 templates/base.html:114
+msgid "Main"
+msgstr "Главная"
+
+#: templates/admin/base.html:31 templates/base.html:117
+#: templates/search.html:5 templates/search.html.py:91
+#: templates/search.html:192
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/admin/base.html:32 templates/base.html:140
+msgid "Annotate"
+msgstr "Аннотировать"
+
+#: templates/admin/base.html:34 templates/base.html:135
+msgid "Welcome,"
+msgstr ""
+
+#: templates/admin/base.html:40 templates/base.html:147
+msgid "Documentation"
+msgstr ""
+
+#: templates/admin/base.html:43 templates/base.html:150
+msgid "Change password"
+msgstr ""
+
+#: templates/admin/base.html:45 templates/base.html:154
+msgid "Log out"
+msgstr ""
+
+#: templates/admin/base.html:55
+msgid "Home"
+msgstr ""
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:6
+msgid "Django administration"
+msgstr ""
+
+#: templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: templates/admin/index.html:31
+msgid "Add"
+msgstr ""
+
+#: templates/admin/index.html:37
+msgid "Change"
+msgstr ""
+
+#: templates/admin/index.html:47
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:55
+msgid "Recent Actions"
+msgstr ""
+
+#: templates/admin/index.html:56
+msgid "My Actions"
+msgstr ""
+
+#: templates/admin/index.html:60
+msgid "None available"
+msgstr ""
+
+#: templates/admin/index.html:74
+msgid "Unknown content"
+msgstr ""
+
+#: templates/admin/login.html:19
+msgid "Please correct the error below."
+msgstr ""
+
+#: templates/admin/login.html:19
+msgid "Please correct the errors below."
+msgstr ""
+
+#: templates/admin/login.html:39
+msgid "Password:"
+msgstr ""
+
+#: templates/admin/login.html:45
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: templates/admin/login.html:49
+msgid "Log in"
+msgstr ""
+
+#: templates/annotate_list.html:5 templates/stats.html:5
+msgid "Russian Learner Corpus Statistics"
+msgstr "Русский учебный корпус Статистика"
+
+#: templates/annotate_list.html:10 templates/base.html:126
+#: templates/stats.html:9 templates/stats.html.py:17
+msgid "Statistics"
+msgstr "Статистика"
+
+#: templates/annotate_list.html:17
+msgid "List of documents for annotation"
+msgstr "Список текстов для разметки"
+
+#: templates/annotate_list.html:21
+msgid "Choose language:"
+msgstr "Выберите язык:"
+
+#: templates/annotate_list.html:35
+msgid "Choose annotator:"
+msgstr "Выберите разметчика:"
+
+#: templates/annotate_list.html:50 templates/annotator/viewtest.html:97
+msgid "Not annotated"
+msgstr "Не размечено"
+
+#: templates/annotate_list.html:120
+msgid "Annotated, not checked"
+msgstr "Размечено, не проверено"
+
+#: templates/annotate_list.html:172
+msgid "Annotated, checked"
+msgstr "Размечено, проверено"
+
+#: templates/annotator/viewtest.html:6
+msgid "Russian Learner Corpus Annotation"
+msgstr "Русский учебный корпус Разметка"
+
+#: templates/annotator/viewtest.html:7
+msgid "Annotation"
+msgstr "Разметка"
+
+#: templates/annotator/viewtest.html:45 templates/annotator/viewtest.html:57
+msgid "Annotate text"
+msgstr "Аннотировать текст"
+
+#: templates/annotator/viewtest.html:71
+msgid "Checked"
+msgstr "Проверено"
+
+#: templates/annotator/viewtest.html:78
+msgid "Not checked"
+msgstr "Не проверено"
+
+#: templates/annotator/viewtest.html:89
+msgid "Annotated"
+msgstr "Размечено"
+
+#: templates/annotator/viewtest.html:122
+msgid "Download annotation as csv"
+msgstr "Скачать разметку в csv"
+
+#: templates/annotator/viewtest.html:123
+msgid "Download text as csv"
+msgstr "Скачать текст в csv"
+
+#: templates/annotator/viewtest.html:124
+msgid "Download plain text"
+msgstr "Скачать чистый текст"
+
+#: templates/annotator/viewtest.html:125
+msgid "Upload annotation"
+msgstr "Загрузить разметку"
+
+#: templates/annotator/viewtest.html:135
+msgid "Загрузить файл с разметкой"
+msgstr ""
+
+#: templates/annotator/viewtest.html:141
+msgid "CSV с разметкой"
+msgstr ""
+
+#: templates/annotator/viewtest.html:143
+msgid ""
+"Выберите файл с разметкой. Убедитесь, что файл сохранен в кодировке utf-8."
+msgstr ""
+
+#: templates/annotator/viewtest.html:147
+msgid "В файле есть строка заголовков."
+msgstr ""
+
+#: templates/annotator/viewtest.html:150
+msgid "Загрузить"
+msgstr ""
+
+#: templates/base.html:12 templates/base.html.py:202
+#: templates/simple/help.html:19 templates/start.html:14
+#: templates/stats.html:18
+msgid "Russian Learner Corpus"
+msgstr "Русский учебный корпус"
+
+#: templates/base.html:19
+msgid "RLC: Russian Learner Corpus"
+msgstr "RLC: Русский учебный корпус"
+
+#: templates/base.html:108 templates/base.html.py:200 templates/start.html:13
+msgid "RLC"
+msgstr ""
+
+#: templates/base.html:120 templates/simple/news.html:4
+#: templates/simple/news.html.py:6 templates/simple/news.html:8
+msgid "News"
+msgstr "Новости"
+
+#: templates/base.html:123 templates/simple/help.html:10
+#: templates/simple/help.html.py:18
+msgid "Help"
+msgstr "Помощь"
+
+#: templates/base.html:139
+msgid "Admin panel"
+msgstr "Панель управления"
+
+#: templates/base.html:142
+msgid "Actions"
+msgstr "Действия"
+
+#: templates/base.html:234 templates/base.html.py:241
+msgid "About"
+msgstr "О корпусе"
+
+#: templates/base.html:254
+msgid "School of Linguistics NRU HSE"
+msgstr "Школа Лингвистики НИУ ВШЭ"
+
+#: templates/result.html:5
+msgid "Russian Learner Corpus Result"
+msgstr "Русский учебный корпус Результат"
+
+#: templates/result.html:6 templates/result.html.py:47
+msgid "Result"
+msgstr "Результат"
+
+#: templates/result.html:54
+msgid "Corpus total"
+msgstr "Всего в корпусе"
+
+#: templates/result.html:57
+msgid "Search executed in a user-defined subcorpus of"
+msgstr "Поиск выполнен по пользовательсокму корпусу из"
+
+#: templates/result.html:60
+msgid "Found"
+msgstr "Найдено"
+
+#: templates/result.html:60
+msgid "contexts"
+msgstr "контекстов"
+
+#: templates/result.html:68 templates/result.html.py:136
+msgid "previous page"
+msgstr "предыдущая страница"
+
+#: templates/result.html:80 templates/result.html.py:148
+msgid "next page"
+msgstr "следующая страница"
+
+#: templates/search.html:4
+msgid "Russian Learner Corpus Search"
+msgstr "Русский учебный корпус Поиск"
+
+#: templates/search.html:86
+msgid "Exact search"
+msgstr "Поиск точных форм"
+
+#: templates/search.html:89
+msgid "Input key words: "
+msgstr "Введите ключевые слова:"
+
+#: templates/search.html:98
+msgid "Specify Subcorpus"
+msgstr "Выбрать подкорпус"
+
+#: templates/search.html:99
+msgid "Display Options"
+msgstr "Настройки"
+
+#: templates/search.html:100
+msgid "Search in New Window"
+msgstr "Искать в новом окне"
+
+#: templates/search.html:112
+msgid "Lexico-grammatical search"
+msgstr "Лексико-грамматический поиск"
+
+#: templates/search.html:120 templates/search.html.py:162
+msgid "Wordform"
+msgstr "Словоформа"
+
+#: templates/search.html:125 templates/search.html.py:167
+msgid "PoS"
+msgstr "Часть речи"
+
+#: templates/search.html:125 templates/search.html.py:167
+msgid "Part of Speech"
+msgstr "Часть речи"
+
+#: templates/search.html:130 templates/search.html.py:172
+msgid "Gram"
+msgstr "Грамматика"
+
+#: templates/search.html:130 templates/search.html.py:172
+msgid "Grammatical features"
+msgstr "Грамматические характеристики"
+
+#: templates/search.html:135 templates/search.html.py:177
+msgid "Errors"
+msgstr "Ошибки"
+
+#: templates/search.html:135 templates/search.html.py:177
+msgid "Error tags"
+msgstr "Тэги ошибок"
+
+#: templates/search.html:140 templates/search.html.py:181
+msgid "Comment"
+msgstr "Комментарий"
+
+#: templates/search.html:148 templates/search.html.py:151
+msgid "From"
+msgstr "От"
+
+#: templates/search.html:149 templates/search.html.py:153
+#: templates/search.html:219
+msgid "to"
+msgstr "до"
+
+#: templates/search.html:200
+msgid "Subcorpus"
+msgstr "Подкорпус"
+
+#: templates/search.html:208
+msgid "Period"
+msgstr "Период"
+
+#: templates/search.html:213
+msgid "from"
+msgstr "от"
+
+#: templates/search.html:234
+msgid "Gender of author"
+msgstr "Пол автора"
+
+#: templates/search.html:238
+msgid "m"
+msgstr "м"
+
+#: templates/search.html:239
+msgid "f"
+msgstr "ж"
+
+#: templates/search.html:240 templates/search.html.py:258
+#: templates/search.html:272
+msgid "any"
+msgstr "любой"
+
+#: templates/search.html:252
+msgid "Text mode"
+msgstr "Тип текста"
+
+#: templates/search.html:266 templates/stats.html:103
+msgid "Language background"
+msgstr "Русский язык"
+
+#: templates/search.html:282
+msgid "Dominant language"
+msgstr "Доминантный язык"
+
+#: templates/search.html:287
+msgid "Check All"
+msgstr "Выделить все"
+
+#: templates/search.html:309
+msgid "Level"
+msgstr "Уровень"
+
+#: templates/search.html:314
+msgid "AH"
+msgstr ""
+
+#: templates/search.html:315
+msgid "AL"
+msgstr ""
+
+#: templates/search.html:320
+msgid "IH"
+msgstr ""
+
+#: templates/search.html:321
+msgid "IM"
+msgstr ""
+
+#: templates/search.html:322
+msgid "C1"
+msgstr ""
+
+#: templates/search.html:323
+msgid "C2"
+msgstr ""
+
+#: templates/search.html:337
+msgid "Search only in RULEC"
+msgstr "Искать только в RULEC"
+
+#: templates/search.html:352
+msgid "Preferences"
+msgstr "Настройки"
+
+#: templates/search.html:356
+msgid "Output layout"
+msgstr "Формат вывода"
+
+#: templates/search.html:359
+msgid "full"
+msgstr "полный"
+
+#: templates/search.html:365
+msgid "Matches per page"
+msgstr "Предложений на странице"
+
+#: templates/search.html:378
+msgid "Sentences in expanded context"
+msgstr "Предложений в расширенном контексте"
+
+#: templates/search.html:388
+msgid "Sort by"
+msgstr "Сортировать по"
+
+#: templates/search.html:391
+msgid "wordform"
+msgstr "словоформе"
+
+#: templates/search.html:392
+msgid "lexeme"
+msgstr "лексеме"
+
+#: templates/search.html:393
+msgid "left wordform"
+msgstr "левой словоформе"
+
+#: templates/search.html:394
+msgid "distance"
+msgstr "расстоянию"
+
+#: templates/search.html:395
+msgid "year descending"
+msgstr "году (по убыванию)"
+
+#: templates/search/errsel.html:7
+msgid "ERROR TAGS"
+msgstr "Тэги ошибок"
+
+#: templates/search/errsel.html:27
+msgid "Spelling errors"
+msgstr "Орфографические ошибки"
+
+#: templates/search/errsel.html:42
+msgid "Lexical errors"
+msgstr "Лексические ошибки"
+
+#: templates/search/errsel.html:55
+msgid "Collocation errors"
+msgstr "Ошибки в конструкциях"
+
+#: templates/search/errsel.html:67
+msgid "Morphological errors"
+msgstr "Морфологические ошибки"
+
+#: templates/search/errsel.html:81
+msgid "Cause of errors"
+msgstr "Причина ошибок"
+
+#: templates/search/errsel.html:93
+msgid "Additional tags"
+msgstr "Дополнительные пометы"
+
+#: templates/search/errsel.html:110
+msgid "Syntactic errors"
+msgstr "Синтаксические ошибки"
+
+#: templates/search/errsel.html:139 templates/search/gramsel.html:230
+#: templates/search/lex.html:56
+msgid "OK"
+msgstr "ОК"
+
+#: templates/search/errsel.html:140 templates/search/gramsel.html:231
+#: templates/search/lex.html:57
+msgid "Clear"
+msgstr "Очистить"
+
+#: templates/search/errsel.html:141 templates/search/gramsel.html:232
+#: templates/search/lex.html:58
+msgid "Cancel"
+msgstr "Отмена"
+
+#: templates/search/gramsel.html:7
+msgid "GRAMMATICAL TAGS"
+msgstr "Грамматические характеристики"
+
+#: templates/search/gramsel.html:27
+msgid "Gender"
+msgstr "Род"
+
+#: templates/search/gramsel.html:32
+msgid "masculine"
+msgstr "мужской"
+
+#: templates/search/gramsel.html:33
+msgid "neuter"
+msgstr "средний"
+
+#: templates/search/gramsel.html:34
+msgid "feminine"
+msgstr "женский"
+
+#: templates/search/gramsel.html:35
+msgid "common"
+msgstr "общий"
+
+#: templates/search/gramsel.html:42
+msgid "Case"
+msgstr "Падеж"
+
+#: templates/search/gramsel.html:47
+msgid "nominative"
+msgstr "именительный"
+
+#: templates/search/gramsel.html:48
+msgid "accusative"
+msgstr "винительный"
+
+#: templates/search/gramsel.html:49
+msgid "dative"
+msgstr "дательный"
+
+#: templates/search/gramsel.html:50
+msgid "genitive"
+msgstr "родительный"
+
+#: templates/search/gramsel.html:51
+msgid "instrumental"
+msgstr "творительный"
+
+#: templates/search/gramsel.html:52
+msgid "locative"
+msgstr "предложный"
+
+#: templates/search/gramsel.html:53
+msgid "locative 2"
+msgstr "предложный 2"
+
+#: templates/search/gramsel.html:54
+msgid "genitive 2"
+msgstr "родительный 2"
+
+#: templates/search/gramsel.html:61
+msgid "Degree / Adj. form"
+msgstr "Степень / Краткость"
+
+#: templates/search/gramsel.html:66
+msgid "comparative"
+msgstr "сравнительная"
+
+#: templates/search/gramsel.html:67
+msgid "comparative 2"
+msgstr "сравнительная 2"
+
+#: templates/search/gramsel.html:68
+msgid "superlative"
+msgstr "превосходная"
+
+#: templates/search/gramsel.html:69
+msgid "full form"
+msgstr "полная форма"
+
+#: templates/search/gramsel.html:70
+msgid "short form"
+msgstr "краткая форма"
+
+#: templates/search/gramsel.html:79
+msgid "Number"
+msgstr "Число"
+
+#: templates/search/gramsel.html:84
+msgid "singular"
+msgstr "единственное"
+
+#: templates/search/gramsel.html:85
+msgid "plural"
+msgstr "множественное"
+
+#: templates/search/gramsel.html:92
+msgid "Animacy"
+msgstr "Одушевленность"
+
+#: templates/search/gramsel.html:97
+msgid "animate"
+msgstr "одушевленное"
+
+#: templates/search/gramsel.html:98
+msgid "inanimate"
+msgstr "неодушевленное"
+
+#: templates/search/gramsel.html:105
+msgid "Other features"
+msgstr "Прочее"
+
+#: templates/search/gramsel.html:110
+msgid "digits"
+msgstr "цифры"
+
+#: templates/search/gramsel.html:111
+msgid "anomalous form"
+msgstr "аномальная форма"
+
+#: templates/search/gramsel.html:112
+msgid "distorted form"
+msgstr "искаженная форма"
+
+#: templates/search/gramsel.html:113
+msgid "initials"
+msgstr "инициалы"
+
+#: templates/search/gramsel.html:114
+msgid "abbreviation"
+msgstr "аббревиатура"
+
+#: templates/search/gramsel.html:115
+msgid "indeclinable"
+msgstr "несклоняемое"
+
+#: templates/search/gramsel.html:116
+msgid "toponym"
+msgstr "топоним"
+
+#: templates/search/gramsel.html:125
+msgid "Mood / Verb form"
+msgstr "Наклонение / Форма"
+
+#: templates/search/gramsel.html:130
+msgid "indicative"
+msgstr "изъявительное"
+
+#: templates/search/gramsel.html:131
+msgid "imperative"
+msgstr "повелительное"
+
+#: templates/search/gramsel.html:132
+msgid "imperative 2"
+msgstr "повелительное 2"
+
+#: templates/search/gramsel.html:133
+msgid "infinitive"
+msgstr "инфинитив"
+
+#: templates/search/gramsel.html:134
+msgid "participle"
+msgstr "причастие"
+
+#: templates/search/gramsel.html:135
+msgid "gerund"
+msgstr "деепричастие"
+
+#: templates/search/gramsel.html:142
+msgid "Tense"
+msgstr "Время"
+
+#: templates/search/gramsel.html:147
+msgid "present"
+msgstr "настоящее"
+
+#: templates/search/gramsel.html:148
+msgid "future"
+msgstr "будущее"
+
+#: templates/search/gramsel.html:149
+msgid "past"
+msgstr "прошедшее"
+
+#: templates/search/gramsel.html:156
+msgid "Aspect"
+msgstr "Вид"
+
+#: templates/search/gramsel.html:161
+msgid "perfective"
+msgstr "совершенный"
+
+#: templates/search/gramsel.html:162
+msgid "imperfective"
+msgstr "несовершенный"
+
+#: templates/search/gramsel.html:171
+msgid "Person"
+msgstr "Лицо"
+
+#: templates/search/gramsel.html:176
+msgid "first"
+msgstr "первое"
+
+#: templates/search/gramsel.html:177
+msgid "second"
+msgstr "второе"
+
+#: templates/search/gramsel.html:178
+msgid "third"
+msgstr "третье"
+
+#: templates/search/gramsel.html:185
+msgid "Voice"
+msgstr "Залог"
+
+#: templates/search/gramsel.html:190
+msgid "active"
+msgstr "действительный"
+
+#: templates/search/gramsel.html:191
+msgid "passive"
+msgstr "страдательный"
+
+#: templates/search/gramsel.html:192
+msgid "middle"
+msgstr "медиальный"
+
+#: templates/search/gramsel.html:199
+msgid "Transitivity"
+msgstr "Переходность"
+
+#: templates/search/gramsel.html:204
+msgid "transitive"
+msgstr "переходный"
+
+#: templates/search/gramsel.html:205
+msgid "intransitive"
+msgstr "непереходный"
+
+#: templates/search/gramsel.html:212
+msgid "Proper names"
+msgstr "Имена собственные"
+
+#: templates/search/gramsel.html:217
+msgid "family name"
+msgstr "фамилия"
+
+#: templates/search/gramsel.html:218
+msgid "first name"
+msgstr "имя"
+
+#: templates/search/gramsel.html:219
+msgid "patronymic name"
+msgstr "отчество"
+
+#: templates/search/lex.html:7
+msgid "POS TAGS"
+msgstr "Части речи"
+
+#: templates/search/lex.html:25
+msgid "Parts of Speech"
+msgstr "Части речи"
+
+#: templates/search/lex.html:32
+msgid "noun"
+msgstr "существительное"
+
+#: templates/search/lex.html:33
+msgid "adjective"
+msgstr "прилагательное"
+
+#: templates/search/lex.html:34
+msgid "numeral"
+msgstr "числительное"
+
+#: templates/search/lex.html:35
+msgid "numeral adjective"
+msgstr "числ-прил"
+
+#: templates/search/lex.html:36
+msgid "verb"
+msgstr "глагол"
+
+#: templates/search/lex.html:37
+msgid "adverb"
+msgstr "наречие"
+
+#: templates/search/lex.html:38
+msgid "parenthesis"
+msgstr "вводное слово"
+
+#: templates/search/lex.html:39
+msgid "predicative"
+msgstr "предикатив"
+
+#: templates/search/lex.html:42
+msgid "adverbial pronoun"
+msgstr "мест-прил"
+
+#: templates/search/lex.html:43
+msgid "pronoun"
+msgstr "мест-сущ"
+
+#: templates/search/lex.html:44
+msgid "adjective pronoun"
+msgstr "местоименное наречие"
+
+#: templates/search/lex.html:45
+msgid "preposition"
+msgstr "предлог"
+
+#: templates/search/lex.html:46
+msgid "conjunction"
+msgstr "союз"
+
+#: templates/search/lex.html:47
+msgid "particle"
+msgstr "частица"
+
+#: templates/search/lex.html:48
+msgid "interjection"
+msgstr "междометие"
+
+#: templates/simple/help.html:5
+msgid "Russian Learner Corpus Help"
+msgstr "Русский учебный корпус Помощь"
+
+#: templates/simple/help.html:60 templates/start.html:44
+msgid "Back to top"
+msgstr "Наверх"
+
+#: templates/simple/help.html:67
+msgid "Как искать в корпусе"
+msgstr ""
+
+#: templates/simple/help.html:88
+msgid "Тэги ошибок"
+msgstr ""
+
+#: templates/simple/help.html:413
+msgid "Как размечать в корпусе"
+msgstr ""
+
+#: templates/simple/help.html:418
+msgid "Как добавлять тексты"
+msgstr ""
+
+#: templates/simple/help.html:423
+msgid "Метаразметка"
+msgstr ""
+
+#: templates/simple/help.html:452
+msgid "Разметка ошибок"
+msgstr ""
+
+#: templates/simple/help.html:464
+msgid ""
+"Чтобы получить доступ к <mark>инструкции по работе в панели управления и "
+"описанию инструмента разметки</mark>, войдите в систему, используя ваш логин "
+"и пароль."
+msgstr ""
+
+#: templates/simple/news.html:3
+msgid "Russian Learner Corpus News"
+msgstr "Русский учебный корпус Новости"
+
+#: templates/stats.html:32
+msgid "Annotated documents:"
+msgstr "Размеченные тексты: "
+
+#: templates/stats.html:38
+msgid "Checked documents:"
+msgstr "Проверенные тексты:"
+
+#: templates/stats.html:47
+msgid "Raw counts"
+msgstr "Подсчеты"
+
+#: templates/stats.html:50
+msgid "Number of texts"
+msgstr "Количество текстов"
+
+#: templates/stats.html:54
+msgid "Number of words"
+msgstr "Количество слов"
+
+#: templates/stats.html:58
+msgid "Number of sentences"
+msgstr "Количество предложений"
+
+#: templates/stats.html:62
+msgid "Number of annotations"
+msgstr "Количество аннотаций"
+
+#: templates/stats.html:66
+msgid "Gender counts"
+msgstr "Пол автора"
+
+#: templates/stats.html:71 templates/stats.html.py:108
+#: templates/stats.html:123
+msgid "unknown"
+msgstr "неизвестно"
+
+#: templates/stats.html:118
+msgid "Native language"
+msgstr "Доминантный язык"
+
+#~ msgid "Genre counts"
+#~ msgstr "Статистика по жанрам"

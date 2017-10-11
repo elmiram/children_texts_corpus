@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block links %}
+          <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/styles.css" %}" rel="stylesheet">
+  {% endblock %}
+{% block upper-row %}
+<div id="masthead">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1 id="top">{% trans "StartWrit" %}
+          </h1>
+        </div>
+          <div class="col-md-7" align="right"><h1><span  class="lead">{% trans "StartWrit" %}</span></h1>
+        </div>
+      </div>
+
+  </div><!--/container-->
+</div><!--/masthead-->
+{% endblock %}
+<!--main-->
+<div class="container">
+    {% block content %}
+<div class="row">
+      <!--left-->
+      <div class="col-md-3" id="leftCol">
+        <ul class="nav nav-stacked" id="sidebar">
+        {% if LANGUAGE_CODE == 'ru' %}
+            {% for section in sections %}
+                {% if section.issubheader %} <ul> {% endif %}
+          <li><a href="#sec{{ section.number }}">{{ section.header_rus }}</a></li>
+                {% if section.issubheader %} </ul> {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if LANGUAGE_CODE == 'en' %}
+            {% for section in sections %}
+                {% if section.issubheader %} <ul> {% endif %}
+          <li><a href="#sec{{ section.number }}">{{ section.header_eng }}</a></li>
+                {% if section.issubheader %} </ul> {% endif %}
+            {% endfor %}
+        {% endif %}
+
+            <li><a href="#top">{% trans "Back to top" %}</a></li>
+
+        </ul>
+      </div><!--/left-->
+
+      <!--right-->
+      <div class="col-md-9">
+          {% if LANGUAGE_CODE == 'ru' %}
+            {% for section in sections %}
+                <hr id="sec{{ section.number }}">
+                {% if section.issubheader %} <h3 >{{ section.header_rus }}</h3> {% endif %}
+
+                {% if not section.issubheader %}<h2 >{{ section.header_rus }}</h2>{% endif %}
+        {{ section.text_rus|safe }}
+            {% endfor %}
+        {% endif %}
+        {% if LANGUAGE_CODE == 'en' %}
+            {% for section in sections %}
+          <hr id="sec{{ section.number }}">
+       {% if section.issubheader %} <h3 >{{ section.header_eng }}</h3> {% endif %}
+
+                {% if not section.issubheader %}<h2 >{{ section.header_eng }}</h2>{% endif %}
+        {{ section.text_eng|safe }}
+            {% endfor %}
+        {% endif %}
+
+
+
+
+        </div><!--/right-->
+  	</div><!--/row-->
+    {% endblock content%}
+</div><!--/container-->
