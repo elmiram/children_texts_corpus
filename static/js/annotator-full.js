@@ -1391,7 +1391,7 @@
       return this.hide();
     };
 
-  var items = [ "lex", "word", "phrase", "meton", "intens", "deriv", "paron", "asp", "nmz", "aux", "agr", "gov", "infl", "compar", "complex", "rel_clause", "sent_arg", "conn", "coord", "discoord", "ref", "converb", "pron", "voice", "lack", "constr", "discourse", "parc", "logic", "link", "WO", "tauto", "top", "styl", "official", "colloq", "cause", "typo", "contam"];
+  var items = [ "lex", "word", "phrase", "meton", "intens", "deriv", "paron", "asp", "nmz", "aux", "agr", "gov", "infl", "compar", "complex", "rel_clause", "sent_arg", "conn", "coord", "discoord", "ref", "converb", "pron", "voice", "lack", "constr", "discourse", "parc", "logic", "link", "WO", "tauto", "top", "styl", "official", "colloq", "cause", "typo", "contam","orttradvoc","orttradcon","orttraddupl","ortmorfvoc","ortmorfcon","ortmorfdupl","ortcapit","ortspace","ortnonspace","dismix","dismet","dispaste","diselis","region"];
 
     function split( val ) {
       return val.split( /\s+/ );

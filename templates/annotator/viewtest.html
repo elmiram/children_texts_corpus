@@ -185,7 +185,7 @@ $(document).ready(function(){
             <li>pron <a href="#" data-toggle="tooltip" title="Ошибка в местоимениях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
         </ul></li>
         <li>voice <a href="#" data-toggle="tooltip" title="Ошибки в залоге и в актантных деривациях  (декаузатив, рефлексив, реципрок, имперсонал, лабильные глаголы)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
-        <li>lack <a href="#" data-toggle="tooltip" title="Ошибки в залоге и в актантных деривациях  (декаузатив, рефлексив, реципрок, имперсонал, лабильные глаголы)" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>lack <a href="#" data-toggle="tooltip" title="Пропуск необходимого слова " style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
         <li>constr <a href="#" data-toggle="tooltip" title="Ошибка в конструкции" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
     </ul></li>
     <li>{% trans 'Discourse' %}
@@ -206,6 +206,29 @@ $(document).ready(function(){
     <ul><li>cause <a href="#" data-toggle="tooltip" title="Причина ошибки" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a><ul>
         <li>typo <a href="#" data-toggle="tooltip" title="Опечатка" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
         <li>contam <a href="#" data-toggle="tooltip" title="Контаминация конструкций" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li></ul></li></ul></li>
+<li>{% trans 'Orthography' %}
+    <ul><li>orttrad <a href="#" data-toggle="tooltip" title="orttrad" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+    <ul>
+        <li>orttradvoc <a href="#" data-toggle="tooltip" title="Ошибка в употреблении гласной" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>orttradcon <a href="#" data-toggle="tooltip" title="Ошибка в употреблении согласной" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>orttraddupl <a href="#" data-toggle="tooltip" title="Удвоение в корнях" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        </ul></li></ul>
+<ul><li>ortmorf <a href="#" data-toggle="tooltip" title="Нарушение морфологического принципа орфографии" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+    <ul>
+        <li>ortmorfvoc <a href="#" data-toggle="tooltip" title="Ошибка ?" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>ortmorfcon <a href="#" data-toggle="tooltip" title="Ошибка ?" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>ortmorfdupl <a href="#" data-toggle="tooltip" title="Удвоение в аффиксах" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        </ul></li></ul>
+<ul>
+        <li>ortcapit <a href="#" data-toggle="tooltip" title="Прописная вместо строчной, строчная вместо прописной" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>ortspace <a href="#" data-toggle="tooltip" title="Лишний пробел" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>ortnonspace <a href="#" data-toggle="tooltip" title="Отсутствие пробела" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>dismix <a href="#" data-toggle="tooltip" title="Смешение букв и слогов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>dismet <a href="#" data-toggle="tooltip" title="Перестановка букв и слогов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>dispaste <a href="#" data-toggle="tooltip" title="Вставка букв и слогов" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>diselis <a href="#" data-toggle="tooltip" title="Элизия" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+        <li>region <a href="#" data-toggle="tooltip" title="Региолект" style="color:lightgrey"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li></ul>
+</li>
   </ul>
     </div>
     </div>
