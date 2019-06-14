@@ -1,8 +1,11 @@
 #  -- coding: utf8 --
 
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from audiofield.models import AudioFile
+from audiofield.fields import AudioField
 
 import json
 from annotator.utils import *
@@ -23,6 +26,14 @@ class Document(models.Model):
 
     author = models.CharField(max_length=50, help_text=_("Enter author's first and/or  second name."), verbose_name=_('author'))
     filename = models.CharField(max_length=1000, help_text=_("Enter the name of the file from which the text is taken."), verbose_name=_('file name'))
+
+    audio_file = AudioField(db_index=True, null=True, upload_to='audio/', blank=True,
+                            ext_whitelist=(".mp3", ".wav", ".ogg"),
+                            help_text="Allowed types - .mp3, .wav, .ogg")
+
+    image_file = models.ImageField(upload_to='images/', null=True, blank=True, help_text="Allowed types - .jpg .png")
+
+    transcript = models.TextField(help_text=_("Enter transcript."), verbose_name=_('transcript'))
 
     # optional fields - need them for meta in CoRST
     date = models.DateField(db_index=True, null=True, blank=True, help_text=_("When the work on the text started, e.g. 2014."), verbose_name=_('date'))
@@ -98,6 +109,28 @@ class Document(models.Model):
             sent.tagged = ''.join(stagged)
             sent.save()
 
+    def audio_file_player(self):
+        """audio player tag for admin"""
+        if self.audio_file:
+            file_url = os.path.join(settings.MEDIA_URL, str(self.audio_file))
+            player_string = '<audio src="%s" controls>Your browser does not support the audio element.</audio>' % (
+                file_url
+            )
+            return player_string
+
+    audio_file_player.allow_tags = True
+    audio_file_player.short_description = 'Audio file'
+
+    def image_img(self):
+        url = os.path.join(settings.MEDIA_URL, str(self.image_file))
+        if self.image_file:
+            return '<img src="{}" width="100%" onclick="location=\'{}\'"/>'.format(url, url)
+        else:
+            return '(none)'
+
+    image_img.allow_tags = True
+    image_img.short_description = 'Image'
+
     class Meta:
         verbose_name = _('document')
         verbose_name_plural = _('documents')
@@ -125,6 +158,8 @@ class Annotation(models.Model):
     created = models.DateTimeField(auto_now_add=True, db_index=True)
     updated = models.DateTimeField(auto_now=True, db_index=True)
     data = models.TextField()  # all other annotation data as JSON
+    speech_therapist = models.CharField(max_length=100, null=True, blank=True, db_index=True)
+    native_language = models.CharField(max_length=64, null=True, blank=True, db_index=True)
     tag = models.CharField(max_length=100, null=True, blank=True, db_index=True)
     start = models.IntegerField(blank=True, null=True)
     end = models.IntegerField(blank=True, null=True)

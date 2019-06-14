@@ -1,5 +1,6 @@
 #  -- coding: utf8 --
 
+import os
 from django.contrib import admin
 from annotator.models import Document, Annotation, Morphology
 from news.models import Article, Section
@@ -31,18 +32,38 @@ class ExpAdmin(admin.ModelAdmin):
 
 class DocumentAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['owner', 'title', 'body', 'filename', 'date', 'type_of_task']}),
+        (None,               {'fields': ['owner', 'title', 'body', 'filename', 'date', 'audio_file', 'image_file', 'transcript', 'type_of_task']}),
         ('Author', {'fields': [('author', 'gender', 'city'), ('birth', 'grade')]}),
         ('Autocompletion', {'fields': [('annotated', 'checked')], 'classes': [('collapse')]}),
     ]
 
-    list_display = ('title', 'author', 'gender', 'grade', 'city', 'date', 'annotated', 'checked', 'created')
+    list_display = ('title', 'author', 'gender', 'grade', 'city', 'date', 'audio_file_player', 'image_img', 'annotated', 'checked', 'created')
     list_filter = ['gender', 'city', 'grade']
+
+    actions = ['custom_delete_selected']
+
+    def custom_delete_selected(self, request, queryset):
+        for i in queryset:
+            if i.audio_file:
+                if os.path.exists(i.audio_file.path):
+                    os.remove(i.audio_file.path)
+            if i.image_file:
+                if os.path.exists(i.image_file.path):
+                    os.remove(i.image_file.path)
+            i.delete()
+        self.message_user(request, "Successfully deleted.")
+
+    custom_delete_selected.short_description = "Delete selected items"
+
+    def get_actions(self, request):
+        actions = super(DocumentAdmin, self).get_actions(request)
+        del actions['delete_selected']
+        return actions
 
 
 class AnnotationAdmin(admin.ModelAdmin):
     readonly_fields = ('annotated_doc',)
-    list_display = ('annotated_doc', 'tag', 'owner', 'updated', 'created')
+    list_display = ('annotated_doc', 'tag', 'owner', 'speech_therapist', 'native_language', 'updated', 'created')
 
     def annotated_doc(self, instance):
         return instance.document.doc_id.title

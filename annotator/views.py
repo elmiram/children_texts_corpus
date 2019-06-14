@@ -11,14 +11,11 @@ from django.conf import settings
 from django.template import *
 from Corpus.search import *
 from django.contrib.auth.models import User
-from annotator.models import Sentence, Document, Token
+from annotator.models import Annotation, Sentence, Document
 
 import json
 import re
 rePage = re.compile(u'&page=\\d+', flags=re.U)
-
-
-from annotator.models import Document, Annotation, Sentence
 
 
 def mark(request, doc_id):
