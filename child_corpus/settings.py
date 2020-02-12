@@ -56,7 +56,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'Corpus',
     'annotator',
-    'news'
+    'news',
+    'audiofield',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,6 +70,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'child_corpus.urls'
@@ -121,6 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+MEDIA_URL = PREFIX + '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 STATIC_URL = PREFIX + '/static/'
 
 if PROD:
@@ -130,7 +135,6 @@ else:
         os.path.join(BASE_DIR, 'static/'),
     )
 
-MEDIA_ROOT = os.path.dirname(BASE_DIR) + '/public/media/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -169,3 +173,13 @@ else:
 
 TEMPORARY_FILE_LOCATION = os.path.join(BASE_DIR, 'tempfiles')
 
+# Frontend widget values
+# 0-Keep original, 1-Mono, 2-Stereo
+CHANNEL_TYPE_VALUE = 0
+
+# 0-Keep original, 8000-8000Hz, 16000-16000Hz, 22050-22050Hz,
+# 44100-44100Hz, 48000-48000Hz, 96000-96000Hz
+FREQ_TYPE_VALUE = 8000
+
+# 0-Keep original, 1-Convert to MP3, 2-Convert to WAV, 3-Convert to OGG
+CONVERT_TYPE_VALUE = 0
